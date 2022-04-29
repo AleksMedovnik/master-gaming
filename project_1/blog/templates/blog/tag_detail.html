@@ -1,0 +1,12 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+  {{tag.title}}
+{% endblock %}
+
+{% block content %}
+    <h1>Обзоры с тегом "{{tag.title}}"</h1>
+    {% for post in tag.posts.all %}
+       {% include 'blog/includes/card_template.html' %}
+    {% endfor %}
+{% endblock %}
