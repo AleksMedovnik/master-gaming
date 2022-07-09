@@ -5,5 +5,14 @@
 {% endblock %}
 
 {% block content %}
-    {% include 'blog/includes/card_template.html' %}
+
+    <div class="card mb-3">
+        <h4 class="card-title">{{post.title}}</h4>
+        {% include 'blog/includes/post_image.html' %}
+        <div class="card-body">
+            <p class="card-text">{{post.body}}</p>
+            {% include 'blog/includes/tags_in_posts.html' %}
+        </div>
+    </div>
+
 {% endblock %}
