@@ -1,0 +1,57 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+  Product title
+{% endblock %}
+
+{% block content %}
+    <h1>Product title</h1>
+    <main>
+        <div class="card mb-3 page-product">
+                <img src="https://game-roblox.ru/wp-content/uploads/2018/12/render_chibi_mio0001.jpeg"
+                    class="card-img-top"
+                    alt="...">
+                <div class="card-body">
+                    <h5 class="card-title page-product__title">Roblox Skin</h5>
+                    <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi aliquam cum
+                        neque aperiam pariatur reprehenderit perferendis earum minus nisi quas minima doloremque
+                        consectetur in mollitia praesentium, voluptatum iure laboriosam eius molestiae provident
+                        quisquam facere deserunt voluptatibus omnis. Facere, reiciendis? Dolorem ab aspernatur numquam
+                        aut, eligendi beatae? Quaerat eveniet modi tempora dolores qui velit, dignissimos nihil possimus
+                        atque enim sunt voluptatem molestias cumque odit quidem porro veniam laborum? Accusantium
+                        assumenda quas ipsa harum, ut soluta modi excepturi ipsam cupiditate ad nihil doloremque
+                        corporis architecto commodi libero incidunt deleniti voluptatibus id at tempora! Rerum similique
+                        inventore quam blanditiis aut, consectetur doloribus placeat repudiandae cumque natus
+                        consequuntur sit neque officia possimus asperiores odio enim, perferendis amet reiciendis!
+                        Nulla, suscipit id voluptas voluptatibus vitae iste natus facilis iure dolor maxime at
+                        consequuntur quae ducimus explicabo ut aperiam dolore magni modi. Quos ducimus delectus eligendi
+                        modi a minus laudantium ad ut mollitia iure repellendus dignissimos, at eaque non! Nostrum
+                        sapiente officia dignissimos corrupti nemo iure in, quod vel incidunt quidem facere. Aperiam ad
+                        dolores inventore veniam dolor laborum expedita explicabo, esse deleniti similique aut accusamus
+                        recusandae natus maxime, quidem nobis modi atque accusantium. Quasi similique iusto sunt,
+                        laudantium distinctio placeat ex illum officia deleniti qui officiis impedit nemo aliquam
+                        tempore reiciendis minus voluptatibus tempora omnis ea! Non quos autem illo modi corporis. Optio
+                        id dolorum aut totam iusto atque impedit nulla quia, veniam dolorem blanditiis velit doloremque
+                        nobis et, voluptates enim architecto, vel fuga. Consequuntur suscipit nam architecto veritatis
+                        laboriosam facere cum necessitatibus itaque repellat, ipsum neque vero numquam doloremque
+                        reiciendis. Placeat error voluptatibus culpa corrupti ullam non? Totam facere veniam quidem
+                        saepe magnam ipsum perspiciatis culpa exercitationem, iusto quaerat vero vitae doloremque
+                        aspernatur aut rerum, eum tempore, dolorum id provident commodi. Eveniet at quisquam impedit
+                        maxime nam, atque, vitae vero architecto beatae ratione suscipit?</p>
+                    <p class="card-text fs-5">Цена: <span class="page-product__price">1</span>₿</p>
+                    <button type="button"
+                        class="btn btn-info"
+                        id="product-add"
+                        data-id="1">
+                        Добавить в корзину
+                    </button>
+                    <button type="button"
+                        class="btn btn-danger"
+                        data-bs-toggle="modal"
+                        data-bs-target="#orderBuy">
+                        Купить сейчас
+                    </button>
+                </div>
+            </div>
+    </main>
+{% endblock %}

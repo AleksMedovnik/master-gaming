@@ -12,10 +12,16 @@
         rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
         crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="{% static 'css/style.css' %}">
+    <link rel="icon"
+        type="image/png"
+        href="https://avatars.mds.yandex.net/i?id=1e5bfa0ecd5028f4fdfdb431199b2cf3-5026103-images-thumbs&n=13" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                 crossorigin="anonymous"></script>
     <script src="{% static 'js/script.js' %}" defer></script>
+    <script src="{% static 'js/index.js' %}" defer></script>
     <title>
         {% block title %}
         MasterGaming
@@ -51,6 +57,20 @@
                                aria-current="page"
                                 href="{% url 'tags_list_url' %}">Теги</a>
                         </li>
+                         <li class="nav-item">
+                            <a class="nav-link"
+                                href="{% url 'product_list_url' %}">Магазин</a>
+                        </li>
+                        <li class="open-cart">
+                            <button type="button"
+                                class="open-cart__icon"
+                                id="cart-open"
+                                data-bs-toggle="modal"
+                                data-bs-target="#cart">
+                            </button>
+                            <span id="cart-count"
+                                class="open-cart__count">0</span>
+                        </li>
                     </ul>
                     <form class="d-flex" action="{% url 'posts_list_url' %}">
                         <input class="form-control me-2"
@@ -70,6 +90,83 @@
            No content
         {% endblock %}
     </div>
+
+    <!-- Modal Cart -->
+    <div class="modal fade"
+        id="cart"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"
+                        id="exampleModalLabel">Корзина</h5>
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div id="modal-body"
+                    class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button"
+                        id="cart-clear-btn"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">Очистить корзину</button>
+                    <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Order -->
+    <div class="modal fade"
+        id="orderBuy"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="user_name"
+                                class="form-label">Ваше имя</label>
+                            <input type="text"
+                                class="form-control"
+                                name="user_name"
+                                id="user_name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_email"
+                                class="form-label">Email адрес</label>
+                            <input type="email"
+                                class="form-control"
+                                name="user_email"
+                                id="user_email"
+                                aria-describedby="emailHelp">
+                            <div id="emailHelp"
+                                class="form-text">
+                                Мы никогда не передадим вашу электронную почту кому-либо еще.
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-primary">Заказать</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer style="height: 100px; background-color: rgb(6, 6, 6);"
         class="footer d-flex justify-content-center align-items-center">
         <p class="text-white">Copyright © MasterGaming. Любое копирование запрещено</p>

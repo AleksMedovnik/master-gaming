@@ -26,5 +26,9 @@ def tag_detail(request, slug):
     tag = Tag.objects.get(slug__iexact=slug)
     return render(request, 'blog/tag_detail.html', context={'tag': tag})
 
+def product_list(request):
+    return render(request, 'blog/store.html')
 
+def product_detail(request):
+    return render(request, 'blog/store_detail.html')
 
