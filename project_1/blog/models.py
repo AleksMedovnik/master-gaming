@@ -40,3 +40,17 @@ class Comment(models.Model):
 
     def __str__(self):
         return 'Comment by {} on {}'.format(self.name, self.post)
+
+
+class Product(models.Model):
+    title = models.CharField(max_length=150, db_index=True)
+    slug = models.SlugField(max_length=150, unique=True)
+    body = models.TextField(blank=True, db_index=True)
+    price = models.IntegerField()
+    image = models.ImageField(upload_to='images/', default='images/default.png')
+
+    def get_absolute_url(self):
+        return reverse('product_detail_url', kwargs={'slug': self.slug})
+
+    def __str__(self):
+        return self.title

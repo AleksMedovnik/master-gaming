@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Tag
+from .models import Post, Tag, Product
 from django.db.models import Q
 
 def post_lists(request):
@@ -27,8 +27,10 @@ def tag_detail(request, slug):
     return render(request, 'blog/tag_detail.html', context={'tag': tag})
 
 def product_list(request):
-    return render(request, 'blog/store.html')
+    products = Product.objects.all()
+    return render(request, 'blog/store.html', context={'products': products})
 
-def product_detail(request):
-    return render(request, 'blog/store_detail.html')
+def product_detail(request, slug):
+    product = Product.objects.get(slug__iexact=slug)
+    return render(request, 'blog/store_detail.html', context={'product': product})
 
