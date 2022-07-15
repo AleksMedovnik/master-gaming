@@ -28,7 +28,10 @@ def tag_detail(request, slug):
 
 def product_list(request):
     products = Product.objects.all()
-    return render(request, 'blog/store.html', context={'products': products})
+    products_list = []
+    for i in range(0, len(products), 3):
+        products_list.append(products[i:i + 3])
+    return render(request, 'blog/store.html', context={'products_list': products_list})
 
 def product_detail(request, slug):
     product = Product.objects.get(slug__iexact=slug)

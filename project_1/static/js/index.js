@@ -105,7 +105,6 @@ function deleteItemCart(e, cart) {
     delete cartData[itemID];
     setCartData(cartData);
     if (Object.keys(cartData).length === 0) {
-        console.log(Object.keys(cartData).length)
         clearCart(cart)
     }
 

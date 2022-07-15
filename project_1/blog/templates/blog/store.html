@@ -5,27 +5,27 @@
 {% endblock %}
 
 {% block content %}
-    <main>
+<main>
+    {% for products in products_list %}
+    <div class="card-group">
         {% for product in products %}
-        <div class="card-group">
-
-            <div class="card product">
+        <div class="card product">
                     <a href="{{product.get_absolute_url}}"
                         class="product__link">
                         <img src="{{product.image.url}}"
-                            class="card-img-top products__img"
+                            class="card-img-top product__img"
                             alt="{{product.title}}">
                         <div class="card-body">
-                            <h5 class="card-title products__title">{{product.title}}</h5>
+                            <h5 class="card-title product__title">{{product.title}}</h5>
                             <p class="card-text">
-                                {{product.body|truncatewords:35}}
+                                {{product.body|truncatewords:10}}
                             </p>
                             <p class="card-text fs-5">Цена: {{product.price}}₿</p>
                         </div>
                     </a>
                 </div>
-
-        </div>
         {% endfor %}
-    </main>
+    </div>
+    {% endfor %}
+</main>
 {% endblock %}
