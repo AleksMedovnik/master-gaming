@@ -40,3 +40,12 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
+    email = models.CharField(max_length=150, db_index=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, default='', blank=True, null=True)
+
+    def __str__(self):
+        return self.name

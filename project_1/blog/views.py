@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post, Tag, Product
+from .models import Post, Tag, Product, Order
 from django.db.models import Q
 
 
@@ -43,3 +43,12 @@ def product_detail(request, slug):
     product = Product.objects.get(slug__iexact=slug)
     return render(request, 'blog/store_detail.html', context={'product': product})
 
+
+def save_order(request):
+    product = Product.objects.get(pk=request.POST['product_id'])
+    o = Order()
+    o.name = request.POST['user_name']
+    o.email = request.POST['user_email']
+    o.product = product
+    o.save()
+    return render(request, 'blog/order.html', context={'product': product})
