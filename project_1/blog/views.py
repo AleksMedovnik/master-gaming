@@ -45,7 +45,7 @@ def product_detail(request, slug):
 
 
 def save_order(request):
-    product = Product.objects.get(pk=request.POST['product_id'])
+    product = Product.objects.get(slug=request.POST['product_id'])
     o = Order()
     o.name = request.POST['user_name']
     o.email = request.POST['user_email']
