@@ -1,3 +1,4 @@
+
 .open-cart{
     position: relative;
 }
@@ -6,16 +7,17 @@
     width: 50px;
     height: 40px;
     border: none;
-    background-image: url('https://avatars.mds.yandex.net/i?id=d87f5330f25e3965a3950178ba87f64d-5877412-images-thumbs&n=13');
+    background-image: url("../img/cart.png");
     background-color: transparent;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
 
 .open-cart__count{
     position: absolute;
     bottom: 0;
-    right: 0;
+    left: 50px;
     color: rgb(238, 18, 18);
 }
 
