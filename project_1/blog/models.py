@@ -1,5 +1,6 @@
 from django.db import models
 from django.shortcuts import reverse
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Post(models.Model):
     title = models.CharField(max_length=150, db_index=True)
@@ -32,7 +33,7 @@ class Product(models.Model):
     title = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, unique=True)
     body = models.TextField(blank=True, db_index=True)
-    price = models.IntegerField()
+    price = models.PositiveIntegerField(default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
     image = models.ImageField(upload_to='images/', default='images/default.png')
 
     def get_absolute_url(self):
